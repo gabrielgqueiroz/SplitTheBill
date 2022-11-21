@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         //fillpersonList()
         personAdapter = PersonAdapter(this, personList)
+
         amb.personsLv.adapter = personAdapter
 
         carl = registerForActivityResult(
@@ -131,6 +132,7 @@ class MainActivity : AppCompatActivity() {
                     id = i,
                     name = "Nome $i",
                     valorPago = i.toDouble(),
+                    valorPagar = null,
                     desc = "teste"
                 )
             )

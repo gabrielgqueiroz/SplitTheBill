@@ -13,9 +13,15 @@
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/priceTv"
+        android:id="@+id/paidPriceTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="price" />
+        android:text="paid price" />
+
+    <TextView
+        android:id="@+id/priceToReceiveTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="price to receive" />
 
 </LinearLayout>

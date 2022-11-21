@@ -12,7 +12,8 @@ import com.example.splitthebill.model.Person
 
 class PersonAdapter(
 context: Context,
-private val personList: MutableList<Person>
+private val personList: MutableList<Person>,
+forCalculate: Boolean = false
 ) : ArrayAdapter<Person>(context, R.layout.tile_person, personList) {
     private data class TilePersonHolder(val nameTv: TextView, val priceTv: TextView)
 
@@ -30,7 +31,7 @@ private val personList: MutableList<Person>
 
             val tilePersonHolder = TilePersonHolder(
                 personTileView.findViewById(R.id.nameTv),
-                personTileView.findViewById(R.id.priceTv),
+                personTileView.findViewById(R.id.paidPriceTv),
             )
             personTileView.tag = tilePersonHolder
         }

@@ -8,5 +8,6 @@ data class Person(
     val id: Int,
     var name: String,
     var valorPago: Double,
+    var valorPagar: Double?,
     var desc: String,
 ): Parcelable
