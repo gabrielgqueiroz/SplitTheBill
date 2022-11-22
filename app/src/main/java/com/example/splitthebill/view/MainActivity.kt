@@ -3,7 +3,6 @@ package com.example.splitthebill.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(amb.root)
 
         //fillpersonList()
-        personAdapter = PersonAdapter(this, personList,)
+        personAdapter = PersonAdapter(this, personList)
 
         amb.personsLv.adapter = personAdapter
 
@@ -63,13 +62,8 @@ class MainActivity : AppCompatActivity() {
         }
         registerForContextMenu(amb.personsLv)
 
-        amb.personsLv.onItemClickListener = object: AdapterView.OnItemClickListener {
-            override fun onItemClick(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
+        amb.personsLv.onItemClickListener =
+            AdapterView.OnItemClickListener { _, _, position, _ ->
                 val person = personList[position]
                 startActivity(
                     Intent(
@@ -80,7 +74,6 @@ class MainActivity : AppCompatActivity() {
                         VIEW_PERSON, true)
                 )
             }
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -99,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                     Intent(
                         this@MainActivity, SplitActivity::class.java
                     ).putExtra(
-                        PERSONS, ArrayList<Person> (personList)
+                        PERSONS, ArrayList (personList)
                     )
                 )
                 true
@@ -135,7 +128,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun fillpersonList() {
+    /*private fun fillpersonList() {
         for (i in 1..10) {
             personList.add(
                 Person(
@@ -148,5 +141,5 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         }
-    }
+    }*/
 }

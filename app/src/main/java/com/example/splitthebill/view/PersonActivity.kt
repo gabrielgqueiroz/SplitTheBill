@@ -2,10 +2,9 @@ package com.example.splitthebill.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.splitthebill.R
 import com.example.splitthebill.databinding.ActivityPersonBinding
 import com.example.splitthebill.model.Constant.EXTRA_PERSON
 import com.example.splitthebill.model.Person
@@ -24,7 +23,7 @@ class PersonActivity : AppCompatActivity() {
             apb.nameEt.isEnabled = false
             apb.valorPagoEt.isEnabled = false
             apb.descEt.isEnabled = false
-            apb.saveBt.text = "Fechar"
+            apb.saveBt.text = getString(R.string.close)
         }
 
         val receivedPerson = intent.getParcelableExtra<Person>(EXTRA_PERSON)
@@ -34,8 +33,7 @@ class PersonActivity : AppCompatActivity() {
             apb.descEt.setText(person.desc)
         }
 
-        apb.valorPagoEt.setOnFocusChangeListener { view, b ->
-            Log.v("teste", b.toString())
+        apb.valorPagoEt.setOnFocusChangeListener { _, b ->
             if (b){
                 if (apb.valorPagoEt.text.toString() == "0.0")
                     apb.valorPagoEt.setText("")

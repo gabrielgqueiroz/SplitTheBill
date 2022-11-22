@@ -2,13 +2,11 @@ package com.example.splitthebill.view
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.splitthebill.adapter.PersonAdapter
 import com.example.splitthebill.databinding.ActivitySplitBinding
 import com.example.splitthebill.model.Constant.PERSONS
 import com.example.splitthebill.model.Person
-import java.util.ArrayList
 
 class SplitActivity : AppCompatActivity() {
     private val asb: ActivitySplitBinding by lazy {

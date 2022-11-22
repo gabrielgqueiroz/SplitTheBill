@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/removePersonMi"
-        android:title="Remover" />
+        android:title="@string/remove" />
     <item
         android:id="@+id/editPersonMi"
-        android:title="Editar" />
+        android:title="@string/edit" />
 </menu>

@@ -2,7 +2,6 @@ package com.example.splitthebill.adapter
 
 import android.content.Context
 import android.content.Context.LAYOUT_INFLATER_SERVICE
-import android.graphics.text.TextRunShaper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

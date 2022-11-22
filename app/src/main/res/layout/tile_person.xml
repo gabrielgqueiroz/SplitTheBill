@@ -9,27 +9,25 @@
         android:id="@+id/nameTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="name"
+        android:text="@string/name"
         android:textSize="25sp" />
 
     <TextView
         android:id="@+id/paidPriceTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="paid price" />
+        android:text="@string/paid_price" />
 
     <TextView
         android:id="@+id/priceToPayTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:text="price to pay" />
+        android:text="@string/price_to_pay" />
 
     <TextView
         android:id="@+id/priceToReceiveTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:text="price to receive" />
+        android:text="@string/price_to_receive" />
 
 </LinearLayout>
