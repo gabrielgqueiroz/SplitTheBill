@@ -13,4 +13,5 @@
     <string name="price_to_receive">Preço para receber</string>
     <string name="remove">Remover</string>
     <string name="edit">Editar</string>
+    <string name="valid_inputs_person_activity">Certifique que o nome e o valor foi inserido</string>
 </resources>

@@ -35,12 +35,12 @@ class PersonActivity : AppCompatActivity() {
 
         apb.valorPagoEt.setOnFocusChangeListener { _, b ->
             if (b){
-                if (apb.valorPagoEt.text.toString() == "0.0")
+                if (apb.valorPagoEt.text.toString() == getString(R.string._0_00))
                     apb.valorPagoEt.setText("")
             }
             else{
                 apb.valorPagoEt.text.ifEmpty {
-                    apb.valorPagoEt.setText("0.0")
+                    apb.valorPagoEt.setText(getString(R.string._0_00))
                 }
             }
         }
@@ -69,7 +69,7 @@ class PersonActivity : AppCompatActivity() {
                 finish()
             }else {
                 Toast.makeText(
-                    this, "Preencha os valores corretamente", Toast.LENGTH_LONG
+                    this, getString(R.string.valid_inputs_person_activity), Toast.LENGTH_LONG
                 ).show()
             }
         }
