@@ -11,15 +11,19 @@ import com.example.splitthebill.R
 import com.example.splitthebill.model.Person
 
 class PersonAdapter(
-context: Context,
-private val personList: MutableList<Person>,
-forCalculate: Boolean = false
+    context: Context,
+    private val personList: MutableList<Person>,
+    private val forCalculate: Boolean = false
 ) : ArrayAdapter<Person>(context, R.layout.tile_person, personList) {
-    private data class TilePersonHolder(val nameTv: TextView, val priceTv: TextView)
+    private data class TilePersonHolder(
+        val nameTv: TextView, val paidPriceTv: TextView, val priceToReceiveTv: TextView
+        )
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val person = personList[position]
+
         var personTileView = convertView
+
         if (personTileView == null) {
             // Inflo uma nova célula
             personTileView =
@@ -32,13 +36,19 @@ forCalculate: Boolean = false
             val tilePersonHolder = TilePersonHolder(
                 personTileView.findViewById(R.id.nameTv),
                 personTileView.findViewById(R.id.paidPriceTv),
+                personTileView.findViewById(R.id.priceToReceiveTv)
             )
             personTileView.tag = tilePersonHolder
         }
 
         with(personTileView?.tag as TilePersonHolder) {
             nameTv.text = person.name
-            priceTv.text = String.format("R$ %.2f", person.valorPago)
+            paidPriceTv.text = String.format("Pagou: R$ %.2f", person.valorPago)
+            if (forCalculate) {
+                priceToReceiveTv.text = String.format("Deve Receber: R$ %.2f", person.valorPagar)
+            } else {
+                priceToReceiveTv.visibility = View.GONE
+            }
         }
 
         return personTileView

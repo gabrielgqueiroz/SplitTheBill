@@ -3,7 +3,6 @@ package com.example.splitthebill.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
@@ -15,8 +14,10 @@ import com.example.splitthebill.R
 import com.example.splitthebill.adapter.PersonAdapter
 import com.example.splitthebill.databinding.ActivityMainBinding
 import com.example.splitthebill.model.Constant.EXTRA_PERSON
+import com.example.splitthebill.model.Constant.PERSONS
 import com.example.splitthebill.model.Constant.VIEW_PERSON
 import com.example.splitthebill.model.Person
+import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
     private val amb: ActivityMainBinding by lazy {
@@ -35,8 +36,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
 
-        //fillpersonList()
-        personAdapter = PersonAdapter(this, personList)
+        fillpersonList()
+        personAdapter = PersonAdapter(this, personList,)
 
         amb.personsLv.adapter = personAdapter
 
@@ -69,7 +70,6 @@ class MainActivity : AppCompatActivity() {
                 id: Long
             ) {
                 val person = personList[position]
-                Log.v("teste", "vai starta")
                 startActivity(
                     Intent(
                         this@MainActivity, PersonActivity::class.java
@@ -78,7 +78,6 @@ class MainActivity : AppCompatActivity() {
                     ).putExtra(
                         VIEW_PERSON, true)
                 )
-                Log.v("teste", "starto")
             }
         }
     }
@@ -92,6 +91,16 @@ class MainActivity : AppCompatActivity() {
         return when(item.itemId) {
             R.id.addPersonMi -> {
                 carl.launch(Intent(this, PersonActivity::class.java))
+                true
+            }
+            R.id.calculateMi -> {
+                startActivity(
+                    Intent(
+                        this@MainActivity, SplitActivity::class.java
+                    ).putExtra(
+                        PERSONS, ArrayList<Person> (personList)
+                    )
+                )
                 true
             }
             else -> { false }
