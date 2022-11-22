@@ -48,8 +48,7 @@ class PersonActivity : AppCompatActivity() {
         apb.saveBt.setOnClickListener {
             if (
                 apb.nameEt.text.isNotEmpty() &&
-                apb.valorPagoEt.text.isNotEmpty() &&
-                apb.descEt.text.isNotEmpty()
+                apb.valorPagoEt.text.isNotEmpty()
             ) {
                 val person = Person(
                     id = receivedPerson?.id ?: Random(System.currentTimeMillis()).nextInt(),
