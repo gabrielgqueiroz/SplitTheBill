@@ -19,6 +19,13 @@
         android:text="paid price" />
 
     <TextView
+        android:id="@+id/priceToPayTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="price to pay" />
+
+    <TextView
         android:id="@+id/priceToReceiveTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
 
-        fillpersonList()
+        //fillpersonList()
         personAdapter = PersonAdapter(this, personList,)
 
         amb.personsLv.adapter = personAdapter
@@ -141,8 +141,9 @@ class MainActivity : AppCompatActivity() {
                 Person(
                     id = i,
                     name = "Nome $i",
-                    valorPago = i.toDouble(),
+                    valorPago = 10.00,
                     valorPagar = null,
+                    valorReceber = null,
                     desc = "teste"
                 )
             )

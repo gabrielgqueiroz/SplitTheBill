@@ -2,6 +2,7 @@ package com.example.splitthebill.adapter
 
 import android.content.Context
 import android.content.Context.LAYOUT_INFLATER_SERVICE
+import android.graphics.text.TextRunShaper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +17,7 @@ class PersonAdapter(
     private val forCalculate: Boolean = false
 ) : ArrayAdapter<Person>(context, R.layout.tile_person, personList) {
     private data class TilePersonHolder(
-        val nameTv: TextView, val paidPriceTv: TextView, val priceToReceiveTv: TextView
+        val nameTv: TextView, val paidPriceTv: TextView, val priceToPayTv: TextView, val priceToReceiveTv: TextView
         )
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -36,6 +37,7 @@ class PersonAdapter(
             val tilePersonHolder = TilePersonHolder(
                 personTileView.findViewById(R.id.nameTv),
                 personTileView.findViewById(R.id.paidPriceTv),
+                personTileView.findViewById(R.id.priceToPayTv),
                 personTileView.findViewById(R.id.priceToReceiveTv)
             )
             personTileView.tag = tilePersonHolder
@@ -45,8 +47,10 @@ class PersonAdapter(
             nameTv.text = person.name
             paidPriceTv.text = String.format("Pagou: R$ %.2f", person.valorPago)
             if (forCalculate) {
-                priceToReceiveTv.text = String.format("Deve Receber: R$ %.2f", person.valorPagar)
+                priceToPayTv.text = String.format("Deve Pagar: R$ %.2f", person.valorPagar)
+                priceToReceiveTv.text = String.format("Deve Receber: R$ %.2f", person.valorReceber)
             } else {
+                priceToPayTv.visibility = View.GONE
                 priceToReceiveTv.visibility = View.GONE
             }
         }

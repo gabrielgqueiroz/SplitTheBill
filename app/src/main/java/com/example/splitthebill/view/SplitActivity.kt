@@ -22,20 +22,21 @@ class SplitActivity : AppCompatActivity() {
         setContentView(asb.root)
         val personList = intent.getParcelableArrayListExtra<Person>(PERSONS)
 
-        val personMutList: MutableList<Person>
         var sum = 0.0
         personList?.let { persons ->
-            Log.v("teste", persons[0].toString())
             for (person in persons){
                 sum += person.valorPago
             }
             val payPerPerson = (sum / persons.size)
+
             for (person in persons){
-                person.valorPagar = payPerPerson - person.valorPago
+                val payOrReceive = payPerPerson - person.valorPago
+                person.valorPagar = if ((payOrReceive) > 0) payOrReceive else 0.0
+                person.valorReceber = if ((payOrReceive) < 0) -payOrReceive else 0.0
             }
+            personAdapter = PersonAdapter(this, personList.toMutableList(), true)
+            asb.splitLv.adapter = personAdapter
         }
 
-        //personAdapter = PersonAdapter(this, )
-        //asb.splitLv.adapter = personAdapter
     }
 }

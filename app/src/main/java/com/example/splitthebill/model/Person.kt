@@ -9,5 +9,6 @@ data class Person(
     var name: String,
     var valorPago: Double,
     var valorPagar: Double?,
+    var valorReceber: Double?,
     var desc: String,
 ): Parcelable
