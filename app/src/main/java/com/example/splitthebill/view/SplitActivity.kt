@@ -2,7 +2,10 @@ package com.example.splitthebill.view
 
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.splitthebill.R
 import com.example.splitthebill.adapter.PersonAdapter
 import com.example.splitthebill.databinding.ActivitySplitBinding
 import com.example.splitthebill.model.Constant.PERSONS
@@ -36,5 +39,20 @@ class SplitActivity : AppCompatActivity() {
             asb.splitLv.adapter = personAdapter
         }
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_secondary, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.closeMi -> {
+                finish()
+                true
+            }
+            else -> { false }
+        }
     }
 }

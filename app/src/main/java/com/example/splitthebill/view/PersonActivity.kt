@@ -2,12 +2,18 @@ package com.example.splitthebill.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.splitthebill.R
 import com.example.splitthebill.databinding.ActivityPersonBinding
+import com.example.splitthebill.model.Constant
 import com.example.splitthebill.model.Constant.EXTRA_PERSON
 import com.example.splitthebill.model.Person
+import java.util.ArrayList
 import kotlin.random.Random
 
 
@@ -23,12 +29,13 @@ class PersonActivity : AppCompatActivity() {
             apb.nameEt.isEnabled = false
             apb.valorPagoEt.isEnabled = false
             apb.descEt.isEnabled = false
-            apb.saveBt.text = getString(R.string.close)
+            apb.saveBt.visibility = View.GONE
         }
 
         val receivedPerson = intent.getParcelableExtra<Person>(EXTRA_PERSON)
         receivedPerson?.let { person ->
             apb.nameEt.setText(person.name)
+            apb.nameEt.isEnabled = false
             apb.valorPagoEt.setText(person.valorPago.toString())
             apb.descEt.setText(person.desc)
         }
@@ -73,4 +80,20 @@ class PersonActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_secondary, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.closeMi -> {
+                finish()
+                true
+            }
+            else -> { false }
+        }
+    }
+
 }
