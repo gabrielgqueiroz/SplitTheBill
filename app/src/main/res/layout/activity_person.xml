@@ -12,7 +12,6 @@
     <EditText
         android:id="@+id/nameEt"
         android:layout_width="0dp"
-        android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textCapWords|textPersonName"
@@ -24,7 +23,6 @@
     <EditText
         android:id="@+id/valorPagoEt"
         android:layout_width="0dp"
-        android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
@@ -37,7 +35,6 @@
     <EditText
         android:id="@+id/descEt"
         android:layout_width="0dp"
-        android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/desc"
@@ -54,5 +51,6 @@
         android:text="@string/save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/descEt"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
