@@ -32,10 +32,12 @@ class PersonActivity : AppCompatActivity() {
         val receivedPerson = intent.getParcelableExtra<Person>(EXTRA_PERSON)
         receivedPerson?.let { person ->
             if (intent.getBooleanExtra("VIEW_PERSON", false)){
-                apb.nameEt.setText("Nome: ${person.name}")
+                apb.nameEt.setText(getString(R.string.name_view_person, person.name))
                 apb.nameEt.isEnabled = false
-                apb.valorPagoEt.setText("Valor Pago: R$ %.2f".format(person.valorPago.toString().toDouble()))
-                apb.descEt.setText("Descrição: ${person.desc}")
+                apb.valorPagoEt.setText(
+                    getString(R.string.paid_value_view_person, "%.2f".format(person.valorPago.toString().toDouble()))
+                )
+                apb.descEt.setText(getString(R.string.desc_view_person, person.desc))
             }
             else {
                 apb.nameEt.setText(person.name)

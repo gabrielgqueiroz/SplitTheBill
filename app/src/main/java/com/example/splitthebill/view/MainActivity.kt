@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
 
-        //fillpersonList()
         personAdapter = PersonAdapter(this, personList)
 
         amb.personsLv.adapter = personAdapter
@@ -128,18 +127,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /*private fun fillpersonList() {
-        for (i in 1..10) {
-            personList.add(
-                Person(
-                    id = i,
-                    name = "Nome $i",
-                    valorPago = 10.00,
-                    valorPagar = null,
-                    valorReceber = null,
-                    desc = "teste"
-                )
-            )
-        }
-    }*/
 }

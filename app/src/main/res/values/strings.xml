@@ -15,4 +15,7 @@
     <string name="edit">Editar</string>
     <string name="valid_inputs_person_activity">Certifique que o nome e o valor foi inserido</string>
     <string name="dot_00">%1$s.00</string>
+    <string name="name_view_person">Nome: %1$s</string>
+    <string name="paid_value_view_person">Valor Pago: R$ %1$s</string>
+    <string name="desc_view_person">Descrição: %1$s</string>
 </resources>
